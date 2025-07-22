@@ -1,6 +1,7 @@
 
 # Database Project - Cricket Tournament Management System
 This is basically a management system where different cricket tournaments are going to be managed. I have made this project for my Database course of my university to practice how database systems work. 
+
 I have used Micrososft SQL Server for the database and made the front-end using HTML, CSS and JS and for the backend used the Flask.
 ## Demo
 
@@ -10,6 +11,7 @@ I have used Micrososft SQL Server for the database and made the front-end using 
 ## Working
 
 The database managers enter the records od different tournaments and then in the tournaments the records of teams, players, matches, venues, umpires, etc will be entered to manage the different tournaments.
+
 Such as:
 <img width="1911" height="897" alt="image" src="https://github.com/user-attachments/assets/8d7d65c9-b53c-4812-951a-2bbcbfe57701" />
 
