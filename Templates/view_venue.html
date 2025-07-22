@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Venue List</h2>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Country</th>
+      <th>Capacity</th>
+      <th>Pitch Type</th>
+      <th>Floodlit</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for venue in venues %}
+    <tr>
+      <td>{{ venue.name }}</td>
+      <td>{{ venue.city }}</td>
+      <td>{{ venue.country }}</td>
+      <td>{{ venue.capacity }}</td>
+      <td>{{ venue.pitch_type }}</td>
+      <td>{{ 'Yes' if venue.is_floodlit else 'No' }}</td>
+      <td>
+        <form action="{{ url_for('delete_venue', venue_id=venue.venue_id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this venue?');">
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

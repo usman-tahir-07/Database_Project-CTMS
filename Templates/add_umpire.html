@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0"><i class="bi bi-person-badge"></i> Add Umpire</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/add_umpire">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Umpire Name</label>
+                        <input type="text" name="name" id="name" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="nationality" class="form-label">Nationality</label>
+                        <input type="text" name="nationality" id="nationality" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="experience_years" class="form-label">Experience (years)</label>
+                        <input type="number" name="experience_years" id="experience_years" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="umpire_type" class="form-label">Umpire Type</label>
+                        <select name="umpire_type" id="umpire_type" class="form-select" required>
+                            <option>Field</option>
+                            <option>Third</option>
+                            <option>Fourth</option>
+                            <option>Reserve</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="matches_officiated" class="form-label">Matches Officiated</label>
+                    <input type="number" name="matches_officiated" id="matches_officiated" class="form-control" required>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-warning">
+                        <i class="bi bi-save"></i> Save Umpire
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

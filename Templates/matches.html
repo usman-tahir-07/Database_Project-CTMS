@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}View Matches{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Matches</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover shadow-sm">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Match ID</th>
+                    <th>Date</th>
+                    <th>Venue</th>
+                    <th>Tournament</th>
+                    <th>Team 1</th>
+                    <th>Team 2</th>
+                    <th>Winner</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for match in matches %}
+                <tr class="text-center align-middle">
+                    <td>{{ match.match_id }}</td>
+                    <td>{{ match.date }}</td>
+                    <td>{{ match.venue_name }}</td>
+                    <td>{{ match.tournament_name }}</td>
+                    <td>{{ match.team1_name }}</td>
+                    <td>{{ match.team2_name }}</td>
+                    <td>{{ match.winner_name }}</td>
+                    <td>{{ match.result }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

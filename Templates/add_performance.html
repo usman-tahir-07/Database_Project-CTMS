@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-secondary text-white">
+            <h4 class="mb-0"><i class="bi bi-clipboard-plus"></i> Add Performance</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/add_performance">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="match_id" class="form-label">Match</label>
+                        <select name="match_id" id="match_id" class="form-select" required>
+                            {% for match in matches %}
+                            <option value="{{ match.match_id }}">Match {{ match.match_id }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="player_id" class="form-label">Player</label>
+                        <select name="player_id" id="player_id" class="form-select" required>
+                            {% for player in players %}
+                            <option value="{{ player.player_id }}">{{ player.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="runs_scored" class="form-label">Runs Scored</label>
+                        <input type="number" name="runs_scored" id="runs_scored" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="balls_faced" class="form-label">Balls Faced</label>
+                        <input type="number" name="balls_faced" id="balls_faced" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="wickets_taken" class="form-label">Wickets Taken</label>
+                        <input type="number" name="wickets_taken" id="wickets_taken" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="balls_bowled" class="form-label">Balls Bowled</label>
+                        <input type="number" name="balls_bowled" id="balls_bowled" class="form-control">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="overs_bowled" class="form-label">Overs Bowled</label>
+                    <input type="text" name="overs_bowled" id="overs_bowled" class="form-control">
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-dark">
+                        <i class="bi bi-save"></i> Save Performance
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}View Teams{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Teams</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover shadow-sm">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Team ID</th>
+                    <th>Name</th>
+                    <th>Coach</th>
+                    <th>Captain</th>
+                    <th>Home Ground</th>
+                    <th>Tournament</th>
+                    <th>Actions</th> <!-- New column for Delete -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for team in teams %}
+                <tr class="text-center align-middle">
+                    <td>{{ team.team_id }}</td>
+                    <td>{{ team.name }}</td>
+                    <td>{{ team.coach }}</td>
+                    <td>{{ team.captain }}</td>
+                    <td>{{ team.home_ground }}</td>
+                    <td>{{ team.tournament_name }}</td>
+                    <td>
+                        <a href="{{ url_for('delete_team', team_id=team.team_id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this team?');">
+                            <i class="bi bi-trash"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

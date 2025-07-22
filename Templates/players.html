@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}View Players{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Players</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover shadow-sm">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Player ID</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Nationality</th>
+                    <th>Role</th>
+                    <th>Batting Style</th>
+                    <th>Bowling Style</th>
+                    <th>Team</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                <tr class="text-center align-middle">
+                    <td>{{ player.player_id }}</td>
+                    <td>{{ player.name }}</td>
+                    <td>{{ player.dob }}</td>
+                    <td>{{ player.nationality }}</td>
+                    <td>{{ player.role }}</td>
+                    <td>{{ player.batting_style }}</td>
+                    <td>{{ player.bowling_style }}</td>
+                    <td>{{ player.team_name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

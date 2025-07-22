@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><i class="bi bi-plus-circle"></i> Add Match</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/add_match">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="tournament_id" class="form-label">Tournament</label>
+                        <select name="tournament_id" id="tournament_id" class="form-select" required>
+                            {% for t in tournaments %}
+                            <option value="{{ t.tournament_id }}">{{ t.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date" class="form-label">Match Date</label>
+                        <input type="date" name="date" id="date" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="venue_id" class="form-label">Venue</label>
+                        <select name="venue_id" id="venue_id" class="form-select" required>
+                            {% for v in venues %}
+                            <option value="{{ v.venue_id }}">{{ v.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="team1_id" class="form-label">Team 1</label>
+                        <select name="team1_id" id="team1_id" class="form-select" required>
+                            {% for team in teams %}
+                            <option value="{{ team.team_id }}">{{ team.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="team2_id" class="form-label">Team 2</label>
+                        <select name="team2_id" id="team2_id" class="form-select" required>
+                            {% for team in teams %}
+                            <option value="{{ team.team_id }}">{{ team.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="winner_id" class="form-label">Winner</label>
+                        <select name="winner_id" id="winner_id" class="form-select" required>
+                            {% for team in teams %}
+                            <option value="{{ team.team_id }}">{{ team.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="result" class="form-label">Result</label>
+                    <input type="text" name="result" id="result" class="form-control" placeholder="e.g., Team A won by 30 runs" required>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-save"></i> Save Match
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

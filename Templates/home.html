@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-5 fw-bold">Cricket Tournament Management System</h2>
+
+    <!-- 📊 Stats Summary -->
+    <div class="row text-center mb-5">
+        <div class="col-md-3">
+            <div class="card shadow bg-info text-white border-0">
+                <div class="card-body">
+                    <h5 class="card-title">Tournaments</h5>
+                    <p class="card-text display-6 fw-bold">{{ tournament_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow bg-success text-white border-0">
+                <div class="card-body">
+                    <h5 class="card-title">Teams</h5>
+                    <p class="card-text display-6 fw-bold">{{ team_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow bg-warning text-dark border-0">
+                <div class="card-body">
+                    <h5 class="card-title">Players</h5>
+                    <p class="card-text display-6 fw-bold">{{ player_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow bg-danger text-white border-0">
+                <div class="card-body">
+                    <h5 class="card-title">Matches</h5>
+                    <p class="card-text display-6 fw-bold">{{ match_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔘 Dashboard Buttons -->
+    <div class="row mt-4">
+    <!-- 🔍 View Section -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">View Section</h5>
+            </div>
+            <div class="card-body d-grid gap-3">
+                <a href="/tournaments" class="btn btn-outline-primary">
+                    <i class="bi bi-calendar3"></i> View Tournaments
+                </a>
+                <a href="/teams" class="btn btn-outline-primary">
+                    <i class="bi bi-people-fill"></i> View Teams
+                </a>
+                <a href="/players" class="btn btn-outline-primary">
+                    <i class="bi bi-person-circle"></i> View Players
+                </a>
+                <a href="/matches" class="btn btn-outline-primary">
+                    <i class="bi bi-trophy"></i> View Matches
+                </a>
+                <a href="/view_umpire" class="btn btn-outline-primary">
+                    <i class="bi bi-person-circle"></i> View Umpires
+                </a>
+                <a href="/performances" class="btn btn-outline-primary">
+                    <i class="bi bi-person-circle"></i> View Performances
+                </a>
+                <a href="/view_venue" class="btn btn-outline-primary">
+                    <i class="bi bi-person-circle"></i> View Venues
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ➕ Add & Assign Section -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Add & Assign Section</h5>
+            </div>
+            <div class="card-body d-grid gap-3">
+                <a href="/add_team" class="btn btn-outline-success">
+                    <i class="bi bi-plus-circle"></i> Add Team
+                </a>
+                <a href="/add_player" class="btn btn-outline-success">
+                    <i class="bi bi-plus-circle"></i> Add Player
+                </a>
+                <a href="/add_match" class="btn btn-outline-success">
+                    <i class="bi bi-plus-circle"></i> Add Match
+                </a>
+                <a href="/add_tournament" class="btn btn-outline-success">
+                    <i class="bi bi-check2-square"></i> Add Tournament
+                </a>
+                <a href="/add_umpire" class="btn btn-outline-success">
+                    <i class="bi bi-person-plus-fill"></i> Add Umpire
+                </a>
+                <a href="/add_venue" class="btn btn-outline-success">
+                    <i class="bi bi-check2-square"></i> Add Venue
+                </a>
+                <a href="/add_performance" class="btn btn-outline-success">
+                    <i class="bi bi-graph-up-arrow"></i> Add Performance
+                </a>
+                <a href="/assign_umpire" class="btn btn-outline-success">
+                    <i class="bi bi-check2-square"></i> Assign Umpire
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

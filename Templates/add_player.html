@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0"><i class="bi bi-person-plus"></i> Add Player</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/add_player">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" id="name" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" name="dob" id="dob" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="nationality" class="form-label">Nationality</label>
+                        <input type="text" name="nationality" id="nationality" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="role" class="form-label">Role</label>
+                        <select name="role" id="role" class="form-select" required>
+                            <option>Batsman</option>
+                            <option>Bowler</option>
+                            <option>All-rounder</option>
+                            <option>Wicket-keeper</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="batting_style" class="form-label">Batting Style</label>
+                        <input type="text" name="batting_style" id="batting_style" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="bowling_style" class="form-label">Bowling Style</label>
+                        <input type="text" name="bowling_style" id="bowling_style" class="form-control">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="team_id" class="form-label">Team</label>
+                    <select name="team_id" id="team_id" class="form-select" required>
+                        {% for team in teams %}
+                        <option value="{{ team.team_id }}">{{ team.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-save"></i> Save Player
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

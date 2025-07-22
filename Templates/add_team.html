@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0"><i class="bi bi-people"></i> Add Team</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/add_team">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Team Name</label>
+                        <input type="text" name="name" id="name" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="coach" class="form-label">Coach</label>
+                        <input type="text" name="coach" id="coach" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="captain" class="form-label">Captain</label>
+                        <input type="text" name="captain" id="captain" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="home_ground" class="form-label">Home Ground</label>
+                        <input type="text" name="home_ground" id="home_ground" class="form-control">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="tournament_id" class="form-label">Tournament</label>
+                    <select name="tournament_id" id="tournament_id" class="form-select" required>
+                        {% for t in tournaments %}
+                        <option value="{{ t.tournament_id }}">{{ t.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Save Team
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

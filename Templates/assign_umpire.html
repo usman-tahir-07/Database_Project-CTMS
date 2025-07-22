@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0"><i class="bi bi-person-lines-fill"></i> Assign Umpire</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/assign_umpire">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="match_id" class="form-label">Match</label>
+                        <select name="match_id" id="match_id" class="form-select" required>
+                            {% for match in matches %}
+                            <option value="{{ match.match_id }}">Match {{ match.match_id }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="umpire_id" class="form-label">Umpire</label>
+                        <select name="umpire_id" id="umpire_id" class="form-select" required>
+                            {% for umpire in umpires %}
+                            <option value="{{ umpire.umpire_id }}">{{ umpire.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="role" class="form-label">Umpire Role</label>
+                    <select name="role" id="role" class="form-select" required>
+                        <option>Field</option>
+                        <option>Third</option>
+                        <option>Fourth</option>
+                        <option>Reserve</option>
+                    </select>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-check-circle"></i> Assign
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

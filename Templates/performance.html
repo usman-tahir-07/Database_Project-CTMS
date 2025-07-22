@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}View Performances{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center mb-4">Player Performances</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover shadow-sm">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Match</th>
+                    <th>Player</th>
+                    <th>Runs Scored</th>
+                    <th>Balls Faced</th>
+                    <th>Wickets Taken</th>
+                    <th>Balls Bowled</th>
+                    <th>Overs Bowled</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in performances %}
+                <tr class="text-center align-middle">
+                    <td>{{ p.match }}</td>
+                    <td>{{ p.player }}</td>
+                    <td>{{ p.runs_scored }}</td>
+                    <td>{{ p.balls_faced }}</td>
+                    <td>{{ p.wickets_taken }}</td>
+                    <td>{{ p.balls_bowled }}</td>
+                    <td>{{ p.overs_bowled }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
