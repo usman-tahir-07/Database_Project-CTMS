@@ -4,9 +4,7 @@ This is basically a management system where different cricket tournaments are go
 
 I have used Micrososft SQL Server for the database and made the front-end using HTML, CSS and JS and for the backend used the Flask.
 
-
-https://github.com/user-attachments/assets/74f3d8be-247b-4583-a33a-b260eaba1391
-
+![UjQ51vrFkR](https://github.com/user-attachments/assets/f28bdff1-ba78-406a-a45a-fc4840aa4f7f)
 
 ## Demo
 
